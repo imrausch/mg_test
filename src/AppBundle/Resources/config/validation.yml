@@ -1,0 +1,54 @@
+AppBundle\Entity\Book:
+    constraints:
+        - AppBundle\Validator\Constraints\BookCity:
+            groups: [Add]
+        - AppBundle\Validator\Constraints\BookYear:
+            groups: [Add]
+        - AppBundle\Validator\Constraints\AuthorDeath:
+            groups: [Edit, Delete, Show]
+    properties:
+        name:
+            - Length:
+                min: 2
+                max: 50
+                minMessage: 'The name of book should be at least {{ limit }} characters long'
+                maxMessage: 'The name of book cannot be longer than {{ limit }} characters'
+                groups: [Add, Edit]
+        color:
+            - Length:
+                min: 2
+                max: 50
+                minMessage: 'The color of book should be at least {{ limit }} characters long'
+                maxMessage: 'The color of book cannot be longer than {{ limit }} characters'
+                groups: [Add, Edit]
+        yearOfIssue:
+            - NotBlank:
+                message: 'The year of issue cannot be empty'
+                groups: [Add, Edit]
+        cityOfIssue:
+            - NotBlank:
+                message: 'The city of issue cannot be empty'
+                groups: [Add, Edit]
+
+AppBundle\Entity\Author:
+    constraints:
+        - AppBundle\Validator\Constraints\AuthorYears: ~
+    properties:
+        name:
+            - Length:
+                min: 2
+                max: 50
+                minMessage: 'Name should be at least {{ limit }} characters long'
+                maxMessage: 'Name cannot be longer than {{ limit }} characters'
+        surname:
+            - Length:
+                min: 2
+                max: 50
+                minMessage: 'Surname should be at least {{ limit }} characters long'
+                maxMessage: 'Surname cannot be longer than {{ limit }} characters'
+        yearOfBirth:
+            - NotBlank:
+                message: 'The year of birth cannot be empty'
+        cityOfResidence:
+            - NotBlank:
+                message: 'The city of residence cannot be empty'

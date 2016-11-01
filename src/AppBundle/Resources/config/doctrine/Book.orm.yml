@@ -1,0 +1,33 @@
+AppBundle\Entity\Book:
+    type: entity
+    table: book
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type:     string
+            nullable: false
+        color:
+            type:     string
+            nullable: false
+        yearOfIssue:
+            type:     integer
+            nullable: false
+        cityOfIssue:
+            type:     string
+            nullable: false
+    manyToMany:
+        authors:
+            targetEntity: AppBundle\Entity\Author
+            inversedBy: books
+            joinTable:
+                name: authorBook
+                joinColumns:
+                    book_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    author_id:
+                        referencedColumnName: id

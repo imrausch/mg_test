@@ -1,0 +1,67 @@
+book_get_list:
+    pattern:  /books
+    defaults: { _controller: AppBundle:Book:getList }
+    requirements:
+        _method: GET
+
+book_get_item:
+    pattern:  /books/{id}
+    defaults: { _controller: AppBundle:Book:getItem }
+    requirements:
+        id: \d+
+        _method: GET
+
+book_add_item:
+    pattern:  /books
+    defaults: { _controller: AppBundle:Book:editItem, id: 0 }
+    requirements:
+        _method: POST
+
+book_edit_item:
+    pattern:  /books/{id}
+    defaults: { _controller: AppBundle:Book:editItem }
+    requirements:
+        id: \d+
+        _method: PUT
+
+book_delete_item:
+    pattern:  /books/{id}
+    defaults: { _controller: AppBundle:Book:deleteItem }
+    requirements:
+        id: \d+
+        _method: DELETE
+
+
+author_get_list:
+    pattern:  /authors
+    defaults: { _controller: AppBundle:Author:getList }
+    requirements:
+        _method: GET
+
+author_get_item:
+    pattern:  /authors/{id}
+    defaults: { _controller: AppBundle:Author:getItem }
+    requirements:
+        id: \d+
+        _method: GET
+
+author_add_item:
+    pattern:  /authors
+    defaults: { _controller: AppBundle:Author:editItem, id: 0 }
+    requirements:
+        _method: POST
+
+author_edit_item:
+    pattern:  /authors/{id}
+    defaults: { _controller: AppBundle:Author:editItem }
+    requirements:
+        id: \d+
+        _method: PUT
+
+author_delete_item:
+    pattern:  /authors/{id}
+    defaults: { _controller: AppBundle:Author:deleteItem }
+    requirements:
+        id: \d+
+        _method: DELETE
+

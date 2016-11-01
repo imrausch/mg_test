@@ -1,0 +1,28 @@
+AppBundle\Entity\Author:
+    type: entity
+    table: author
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type:     string
+            nullable: false
+        surname:
+            type:     string
+            nullable: false
+        yearOfBirth:
+            type:     integer
+            nullable: false
+        yearOfDeath:
+            type:     integer
+            nullable: true
+        cityOfResidence:
+            type:     string
+            nullable: false
+    manyToMany:
+        books:
+          targetEntity: AppBundle\Entity\Book
+          mappedBy: authors
